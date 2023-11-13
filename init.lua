@@ -13,6 +13,7 @@ for _, source in ipairs {
     "plugins.telescope",
     "plugins.treesitter",
     "plugins.local-highlight",
+    "plugins.gitsigns",
 } do
     local status_ok, fault = pcall(require, source)
     if not status_ok then
