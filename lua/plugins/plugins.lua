@@ -85,6 +85,10 @@ return packer.startup(function(use)
         "neovim/nvim-lspconfig",
     }
 
+    -- Comment
+    use "numToStr/Comment.nvim"
+    use "JoosepAlviste/nvim-ts-context-commentstring"
+
     -- Cursorline
     use "tzachar/local-highlight.nvim"
 
