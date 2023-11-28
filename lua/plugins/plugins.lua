@@ -42,6 +42,14 @@ return packer.startup(function(use)
     use "nvim-lua/popup.nvim" -- An implementation of the Popup API from vim in Neovim
     use "nvim-lua/plenary.nvim" -- Useful lua functions used ny lots of plugins
 
+    use {
+        "akinsho/bufferline.nvim",
+        requires = {
+            {'nvim-tree/nvim-web-devicons', opt = true},
+            {'moll/vim-bbye', opt = false},
+        },
+    }
+
     use 'nvim-tree/nvim-web-devicons'
     use {
         'nvim-tree/nvim-tree.lua',

@@ -16,6 +16,7 @@ for _, source in ipairs {
     "plugins.gitsigns",
     "plugins.comment",
     "plugins.nvim-tree",
+    "plugins.bufferline",
 } do
     local status_ok, fault = pcall(require, source)
     if not status_ok then

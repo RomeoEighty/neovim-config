@@ -67,3 +67,5 @@ keymap("n", "<leader>r", "<cmd>Telescope lsp_references<cr>", opts)
 keymap("n", "<c-t>", "<cmd>Telescope live_grep<cr>", opts)
 -- keymap("n", "<leader>g", "<cmd>Telescope find_files<cr>", opts)
 
+-- Bbye
+keymap("n", "<leader>q", "<cmd>Bdelete<cr>", opts)
