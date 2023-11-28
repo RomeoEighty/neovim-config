@@ -60,6 +60,7 @@ keymap("x", "<A-j>", ":move '>+1<CR>gv-gv", opts)
 keymap("x", "<A-k>", ":move '<-2<CR>gv-gv", opts)
 
 -- Telescope
+keymap("n", "<leader>b", "<cmd>Telescope buffers<cr>", opts)
 keymap("n", "<leader>f", "<cmd>Telescope find_files<cr>", opts)
 keymap("n", "<leader>o", "<cmd>Telescope oldfiles<cr>", opts)
 keymap("n", "<leader>r", "<cmd>Telescope lsp_references<cr>", opts)
