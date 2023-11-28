@@ -95,7 +95,7 @@ bufferline.setup {
         -- can also be a table containing 2 custom separators
         -- [focused and unfocused]. eg: { '|', '|' }
         separator_style = "slant", -- "slant" | "slope" | "thick" | "thin" | { 'any', 'any' },
-        enforce_regular_tabs = true, -- false | true,
+        enforce_regular_tabs = false, -- false | true,
         always_show_bufferline = true, -- true | false,
         hover = {
             enabled = true,
