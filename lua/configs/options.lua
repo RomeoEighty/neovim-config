@@ -81,5 +81,5 @@ for scope, table in pairs(options) do
     end
 end
 
-vim.cmd [[set iskeyword+=-]] -- 'aa-bb' is one word
+-- vim.cmd [[set iskeyword+=-]] -- 'aa-bb' is one word
 vim.cmd [[set iskeyword+=@-@]] -- '@abc' is one word
