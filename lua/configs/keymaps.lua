@@ -20,6 +20,9 @@ vim.g.maplocalleader = " "
 
 -- Normal --
 keymap("n", "<ESC><ESC>", ":noh<CR>", opts)
+
+keymap("n", "j", "gj", opts)
+keymap("n", "k", "gk", opts)
 -- Better window navigation
 keymap("n", "<C-h>", "<C-w>h", opts)
 keymap("n", "<C-j>", "<C-w>j", opts)
@@ -35,8 +38,10 @@ keymap("n", "<A-Left>", ":vertical resize -2<CR>", opts)
 keymap("n", "<A-Right>", ":vertical resize +2<CR>", opts)
 
 -- Navigate buffers
-keymap("n", "<A-l>", ":bnext<CR>", opts)
-keymap("n", "<A-h>", ":bprevious<CR>", opts)
+keymap("n", "<A-l>", ":BufferLineCycleNext<CR>", opts)
+keymap("n", "<A-h>", ":BufferLineCyclePrev<CR>", opts)
+keymap("n", "<A-L>", ":BufferLineMoveNext<CR>", opts)
+keymap("n", "<A-H>", ":BufferLineMovePrev<CR>", opts)
 
 -- Insert --
 -- Press jk fast to enter
