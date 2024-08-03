@@ -1,7 +1,7 @@
 local status_ok, localhighlight = pcall(require, "local-highlight")
 if not status_ok then
     vim.notify("local-highlight not found!")
-    return
+    return {}
 end
 
 localhighlight.setup {
