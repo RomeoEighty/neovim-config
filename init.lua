@@ -2,9 +2,9 @@ if vim.loader then
     vim.loader.enable()
 end
 
-for _, source in ipairs {
-    "configs.options",
+local config_files = {
     "configs.keymaps",
+    "configs.options",
     "plugins.plugins",
     "plugins.lualine",
     "plugins.colorscheme",
@@ -17,7 +17,9 @@ for _, source in ipairs {
     "plugins.comment",
     "plugins.nvim-tree",
     "plugins.bufferline",
-} do
+}
+
+for _, source in ipairs(config_files) do
     local status_ok, fault = pcall(require, source)
     if not status_ok then
         vim.api.nvim_err_writeln("Failed to load " .. source .. "\n\n" .. fault)
