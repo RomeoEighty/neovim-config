@@ -1,6 +1,6 @@
 local status_ok, gitsigns = pcall(require, "gitsigns")
 if not status_ok then
-    return
+    return {}
 end
 gitsigns.setup {
     signs = {
@@ -39,8 +39,5 @@ gitsigns.setup {
         relative = 'cursor',
         row = 0,
         col = 1
-    },
-    yadm = {
-        enable = false
     },
 }
