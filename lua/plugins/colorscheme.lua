@@ -1,5 +1,5 @@
 vim.cmd[[colorscheme default]]
-local colorscheme = "kanagawa-wave"
+local colorscheme = "gotham"
 
 local status_ok, _ = pcall(vim.cmd, "colorscheme " .. colorscheme)
 if not status_ok then
