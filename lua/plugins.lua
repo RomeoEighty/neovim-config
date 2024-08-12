@@ -81,12 +81,14 @@ local plugins = {
 
     -- LSP
     {
-        'williamboman/mason.nvim',
-        'williamboman/mason-lspconfig.nvim',
         'neovim/nvim-lspconfig',
-        -- config = function()
-        --     require("plugins.lsp")
-        -- end,
+        dependencies = {
+            'williamboman/mason.nvim',
+            'williamboman/mason-lspconfig.nvim',
+        },
+        config = function()
+            require("plugins.lsp")
+        end,
     },
 
     -- cmp

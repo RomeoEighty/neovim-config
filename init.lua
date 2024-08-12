@@ -7,7 +7,7 @@ local config_files = {
     "configs.options",
     "plugins",
     "plugins.colorscheme",
-    "plugins.lsp",
+    -- "plugins.lsp",
     -- "plugins.local-highlight",
     -- "plugins.lualine",
     -- "plugins.cmp",
