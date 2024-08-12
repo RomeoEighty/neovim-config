@@ -59,6 +59,7 @@ local plugins = {
     { 'whatyouhide/vim-gotham', lazy = true },
     { 'cocopon/iceberg.vim', lazy = true },
     { 'nordtheme/vim', lazy = true },
+    { 'nyoom-engineering/oxocarbon.nvim', lazy = true },
     { 'lunarvim/colorschemes', lazy = true },
     { 'rebelot/kanagawa.nvim', lazy = true },
     { 'folke/tokyonight.nvim', lazy = true },
