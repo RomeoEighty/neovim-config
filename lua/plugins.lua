@@ -1,5 +1,5 @@
 local install_path = vim.fn.stdpath("data") .. "/lazy/lazy.nvim"
-if not (vim.uv or vim.loop).fs_stat(install_path) then
+if not vim.uv.fs_stat(install_path) then
     local lazyrepo = "https://github.com/folke/lazy.nvim.git"
     local out = vim.fn.system({
         "git",
@@ -36,11 +36,17 @@ local plugins = {
                { 'nvim-tree/nvim-web-devicons', lazy = true },
                { 'moll/vim-bbye', lazy = false },
         },
+        config = function()
+            require("plugins.bufferline")
+        end,
     },
 
     {
         'nvim-tree/nvim-tree.lua',
         dependencies = { 'nvim-tree/nvim-web-devicons', lazy = true },
+        config = function()
+            require("plugins.nvim-tree")
+        end,
     },
 
     -- colorschemes
@@ -54,10 +60,16 @@ local plugins = {
     {
         'nvim-lualine/lualine.nvim',
         dependencies = { 'nvim-tree/nvim-web-devicons', lazy = true },
+        config = function()
+            require("plugins.lualine")
+        end,
     },
 
     {
-        'lewis6991/gitsigns.nvim'
+        'lewis6991/gitsigns.nvim',
+        config = function()
+            require("plugins.gitsigns")
+        end,
     },
 
     -- LSP
@@ -65,6 +77,9 @@ local plugins = {
         'williamboman/mason.nvim',
         'williamboman/mason-lspconfig.nvim',
         'neovim/nvim-lspconfig',
+        -- config = function()
+        --     require("plugins.lsp")
+        -- end,
     },
 
     -- cmp
@@ -79,58 +94,46 @@ local plugins = {
             "saadparwaiz1/cmp_luasnip",
             "L3MON4D3/LuaSnip",
         },
+        config = function()
+            require("plugins.cmp")
+        end,
     },
 
     {
         "nvim-treesitter/nvim-treesitter",
-        build = ":TSUpdate"
+        build = ":TSUpdate",
+        config = function()
+            require("plugins.treesitter")
+        end,
     },
 
     {
         'nvim-telescope/telescope.nvim',
         tag = '0.1.8',
-        dependencies = { 'nvim-lua/plenary.nvim' }
+        dependencies = { 'nvim-lua/plenary.nvim' },
+        config = function()
+            require("plugins.telescope")
+        end,
     },
 
-    { 'tzachar/local-highlight.nvim' },
+    {
+        'tzachar/local-highlight.nvim',
+        config = function()
+            require("plugins.local-highlight")
+        end,
+    },
 
     {
         "numToStr/Comment.nvim",
-        -- https://github.com/catgoose/nvim/blob/main/lua/plugins/comment.lua
-        --config = function()
-        --    local prehook = require("ts_context_commentstring.integrations.comment_nvim").create_pre_hook()
-        --    require("Comment").setup({
-        --        padding = true,
-        --        sticky = true,
-        --        ignore = "^$",
-        --        toggler = {
-        --            line = "gcc",
-        --            block = "gbc",
-        --        },
-        --        opleader = {
-        --            line = "gc",
-        --            block = "gb",
-        --        },
-        --        extra = {
-        --            above = "gcO",
-        --            below = "gco",
-        --            eol = "gcA",
-        --        },
-        --        mappings = {
-        --            basic = true,
-        --            extra = true,
-        --            extended = false,
-        --        },
-        --        pre_hook = prehook,
-        --        post_hook = nil,
-        --    })
-        --end,
-        --event = "BufReadPre",
+        event = "BufReadPre",
         lazy = false,
         dependencies = {
             "nvim-treesitter/nvim-treesitter",
             "JoosepAlviste/nvim-ts-context-commentstring",
         },
+        config = function()
+            require("plugins.comment")
+        end,
     },
 }
 
