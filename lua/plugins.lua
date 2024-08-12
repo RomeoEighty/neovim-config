@@ -42,6 +42,12 @@ local plugins = {
     },
 
     {
+        "tiagovla/scope.nvim",
+        event = "VeryLazy",
+        opts = {},
+    },
+
+    {
         'nvim-tree/nvim-tree.lua',
         dependencies = { 'nvim-tree/nvim-web-devicons', lazy = true },
         config = function()
@@ -105,6 +111,14 @@ local plugins = {
         config = function()
             require("plugins.treesitter")
         end,
+    },
+
+    {
+        "lukas-reineke/indent-blankline.nvim",
+        main = "ibl",
+        ---@module "ibl"
+        ---@type ibl.config
+        opts = {},
     },
 
     {
