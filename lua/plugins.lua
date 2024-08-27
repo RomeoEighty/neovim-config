@@ -33,12 +33,19 @@ local plugins = {
     {
         'akinsho/bufferline.nvim',
         dependencies = {
-               { 'nvim-tree/nvim-web-devicons', lazy = true },
-               { 'moll/vim-bbye', lazy = false },
+            { 'nvim-tree/nvim-web-devicons', lazy = true },
+            { 'moll/vim-bbye', lazy = false },
         },
         config = function()
             require("plugins.bufferline")
         end,
+    },
+
+    {
+        "sindrets/diffview.nvim",
+        dependencies = {
+            { 'nvim-tree/nvim-web-devicons', lazy = true },
+        },
     },
 
     {
