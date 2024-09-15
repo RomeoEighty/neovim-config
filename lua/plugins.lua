@@ -49,6 +49,11 @@ local plugins = {
     },
 
     {
+        "godlygeek/tabular",
+        event = "VeryLazy",
+    },
+
+    {
         "tiagovla/scope.nvim",
         event = "VeryLazy",
         opts = {},
