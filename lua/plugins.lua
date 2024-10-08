@@ -75,6 +75,7 @@ local plugins = {
     { 'lunarvim/colorschemes', lazy = true },
     { 'rebelot/kanagawa.nvim', lazy = true },
     { 'folke/tokyonight.nvim', lazy = true },
+    { 'diegoulloao/neofusion.nvim', lazy = true},
 
     {
         'nvim-lualine/lualine.nvim',

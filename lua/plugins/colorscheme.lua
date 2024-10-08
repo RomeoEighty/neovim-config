@@ -1,5 +1,5 @@
 vim.cmd[[colorscheme default]]
-local colorscheme = "oxocarbon"
+local colorscheme = "neofusion"
 
 local status_ok, _ = pcall(vim.cmd, "colorscheme " .. colorscheme)
 if not status_ok then
