@@ -124,6 +124,9 @@ local plugins = {
     {
         "L3MON4D3/LuaSnip",
         dependencies = { "rafamadriz/friendly-snippets" },
+        config = function()
+            require("plugins.luasnip")
+        end,
     },
 
     {
