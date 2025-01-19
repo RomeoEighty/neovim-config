@@ -61,7 +61,7 @@ luasnip.add_snippets(nil, {
             text_node({"SCRIPTPATH=\"$( cd -- \"$(dirname \"$0\")\" >/dev/null 2>&1 ; pwd -P )\""}),
         }),
         snippet({
-            trig = "logging",
+            trig = "loggingfunc",
             namr = "logging function idiom",
             dscr = "",
         }, {
