@@ -25,9 +25,6 @@ local types = require("luasnip.util.types")
 local conds = require("luasnip.extras.conditions")
 local conds_expand = require("luasnip.extras.conditions.expand")
 
-
-local date = function() return {os.date('%Y-%m-%dT%H%M%S')} end
-
 -- Shortcut to populate snip.env.TM_SELECTED_TEXT
 -- When you hit ctrl-s, current selection will be cleared and you will be
 -- prompted to type the snippet name.
@@ -42,7 +39,9 @@ luasnip.add_snippets(nil, {
             namr = "Datetime",
             dscr = "Date in the form of YYYY-MM-DDTHHMMSS",
         }, {
-            function_node(date, {}),
+            function_node(function()
+                return {os.date('%Y-%m-%dT%H%M%S')}
+            end, {}),
         }),
     },
     sh = {
