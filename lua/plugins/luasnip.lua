@@ -75,6 +75,28 @@ luasnip.add_snippets(nil, {
     },
     markdown = {
         snippet({
+            trig = "details",
+            namr = "HTML details",
+            dscr = "Create HTML details disclosure tag."
+        }, {
+            text_node({
+                '<details>',
+                '<summary>'
+            }),
+            insert_node(1),
+            text_node({
+                '</summary>',
+                ''
+            }),
+            insert_node(2),
+            text_node({
+                '',
+                '</details>',
+                ''
+            }),
+            insert_node(0)
+        }),
+        snippet({
             trig = "link",
             namr = "markdown_link",
             dscr = "Create markdown link [txt](url - stored on pressing Ctrl-S)"
