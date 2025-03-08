@@ -158,17 +158,31 @@ local plugins = {
     },
 
     {
-        "L3MON4D3/LuaSnip",
-        dependencies = { "rafamadriz/friendly-snippets" },
+        "zbirenbaum/copilot.lua",
         config = function()
-            require("plugins.luasnip")
+            -- for zbirenbaum/copilot-cmp
+            require("copilot").setup({
+                suggestion = { enabled = false },
+                panel = { enabled = false },
+            })
+        end,
+    },
+
+    {
+        "zbirenbaum/copilot-cmp",
+        dependencies = {
+            "hrsh7th/nvim-cmp",
+            "zbirenbaum/copilot.lua",
+        },
+        config = function ()
+            require("copilot_cmp").setup()
         end,
     },
 
     {
         "CopilotC-Nvim/CopilotChat.nvim",
         dependencies = {
-            { "github/copilot.vim" }, -- or zbirenbaum/copilot.lua
+            { "zbirenbaum/copilot.lua" }, -- or github/copilot.vim
             { "nvim-lua/plenary.nvim", branch = "master" }, -- for curl, log and async functions
         },
         build = "make tiktoken", -- Only on MacOS or Linux
@@ -176,6 +190,14 @@ local plugins = {
             -- See Configuration section for options
         },
         -- See Commands section for default commands if you want to lazy load on them
+    },
+
+    {
+        "L3MON4D3/LuaSnip",
+        dependencies = { "rafamadriz/friendly-snippets" },
+        config = function()
+            require("plugins.luasnip")
+        end,
     },
 
     {
