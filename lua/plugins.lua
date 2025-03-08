@@ -216,13 +216,13 @@ local plugins = {
         dependencies = { 'nvim-treesitter/nvim-treesitter', 'nvim-tree/nvim-web-devicons' }, -- if you prefer nvim-web-devicons
     },
 
-    {
-        "lukas-reineke/indent-blankline.nvim",
-        main = "ibl",
-        ---@module "ibl"
-        ---@type ibl.config
-        opts = {},
-    },
+    -- {
+    --     "lukas-reineke/indent-blankline.nvim",
+    --     main = "ibl",
+    --     ---@module "ibl"
+    --     ---@type ibl.config
+    --     opts = {},
+    -- },
 
     {
         "kylechui/nvim-surround",
@@ -246,9 +246,34 @@ local plugins = {
 
     {
         'tzachar/local-highlight.nvim',
+        dependencies = { 'folke/snacks.nvim' },
         config = function()
             require("plugins.local-highlight")
         end,
+    },
+
+    {
+        "folke/snacks.nvim",
+        priority = 1000,
+        lazy = false,
+        ---@type snacks.Config
+        opts = {
+            -- your configuration comes here
+            -- or leave it empty to use the default settings
+            -- refer to the configuration section below
+            bigfile = { enabled = true },
+            dashboard = { enabled = true },
+            explorer = { enabled = true },
+            indent = { enabled = true },
+            input = { enabled = true },
+            picker = { enabled = true },
+            notifier = { enabled = true },
+            quickfile = { enabled = true },
+            scope = { enabled = true },
+            scroll = { enabled = false }, -- disabled because it's too slow
+            statuscolumn = { enabled = true },
+            words = { enabled = true },
+        },
     },
 
     {
