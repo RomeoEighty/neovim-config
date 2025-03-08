@@ -84,6 +84,9 @@ local plugins = {
                 desc = "Buffer Local Keymaps (which-key)",
             },
         },
+        dependencies = {
+            { 'nvim-tree/nvim-web-devicons', lazy = true },
+        },
     },
 
     -- colorschemes
