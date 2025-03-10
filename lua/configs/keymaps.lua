@@ -29,7 +29,8 @@ keymap("n", "<C-j>", "<C-w>j", opts)
 keymap("n", "<C-k>", "<C-w>k", opts)
 keymap("n", "<C-l>", "<C-w>l", opts)
 
-keymap("n", "<leader>e", ":NvimTreeToggle<cr>", opts)
+-- File Explorer
+-- <leader>e to toggle Snacks.picker (settings in plugins.lua)
 
 -- Resize with arrows
 keymap("n", "<A-Up>",    ":resize +2<CR>", opts)
