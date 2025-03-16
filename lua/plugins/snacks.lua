@@ -33,7 +33,7 @@ M.opts = {
                 { icon = " ", key = "q", desc = "Quit", action = ":qa" },
             },
             -- Used by the `header` section
-            header = require("headers").neovim_micro_logo,
+            header = require("plugins.headers").neovim_logo_frame,
         },
         -- item field formatters
         formats = {
