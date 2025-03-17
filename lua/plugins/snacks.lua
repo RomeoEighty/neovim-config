@@ -8,7 +8,7 @@ M.opts = {
     bigfile = { enabled = true },
     dashboard = {
         enabled = true,
-        width = 60,
+        width = 30,
         row = nil, -- dashboard position. nil for center
         col = nil, -- dashboard position. nil for center
         pane_gap = 4, -- empty columns between vertical panes
@@ -62,7 +62,6 @@ M.opts = {
         },
         sections = {
             { section = "header" },
-            { section = "keys", gap = 1, padding = 1 },
             {
                 section = "terminal",
                 cmd = "nvim -v | head -n1 | tr -d '\r\n'",
@@ -70,6 +69,7 @@ M.opts = {
                 indent = 9,
                 padding = 1,
             },
+            { section = "keys", gap = 0, padding = 1 },
             { section = "startup" },
         },
     },
