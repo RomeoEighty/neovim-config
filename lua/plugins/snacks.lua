@@ -63,6 +63,13 @@ M.opts = {
         sections = {
             { section = "header" },
             { section = "keys", gap = 1, padding = 1 },
+            {
+                section = "terminal",
+                cmd = "nvim -v | head -n1 | tr -d '\r\n'",
+                height = 1,
+                indent = 9,
+                padding = 1,
+            },
             { section = "startup" },
         },
     },
