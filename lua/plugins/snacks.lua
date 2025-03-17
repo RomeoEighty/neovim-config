@@ -61,7 +61,12 @@ M.opts = {
             end,
         },
         sections = {
-            { section = "header" },
+            {
+                section = "header",
+                enabled = function()
+                    return vim.api.nvim_win_get_height(0) > 26
+                end
+            },
             {
                 section = "terminal",
                 cmd = "nvim -v | head -n1 | tr -d '\r\n'",
