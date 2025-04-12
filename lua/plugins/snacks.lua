@@ -79,7 +79,7 @@ M.opts = {
         },
     },
     explorer = { enabled = true },
-    indent = { enabled = true },
+    indent = { enabled = false }, -- disabled because it's too slow sometimes.
     input = { enabled = true },
     picker = { enabled = true },
     notifier = { enabled = true },
