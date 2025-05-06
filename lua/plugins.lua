@@ -121,9 +121,10 @@ local plugins = {
             "sindrets/diffview.nvim",        -- optional - Diff integration
 
             -- Only one of these is needed.
-            "nvim-telescope/telescope.nvim", -- optional
+            -- "nvim-telescope/telescope.nvim", -- optional
             -- "ibhagwan/fzf-lua",              -- optional
             -- "echasnovski/mini.pick",         -- optional
+            "folke/snacks.nvim",             -- optional
         },
         config = true
     },
@@ -235,14 +236,14 @@ local plugins = {
         end,
     },
 
-    {
-        'nvim-telescope/telescope.nvim',
-        tag = '0.1.8',
-        dependencies = { 'nvim-lua/plenary.nvim' },
-        config = function()
-            require("plugins.telescope")
-        end,
-    },
+    -- {
+    --     'nvim-telescope/telescope.nvim',
+    --     tag = '0.1.8',
+    --     dependencies = { 'nvim-lua/plenary.nvim' },
+    --     config = function()
+    --         require("plugins.telescope")
+    --     end,
+    -- },
 
     {
         'tzachar/local-highlight.nvim',
