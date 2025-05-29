@@ -1,3 +1,4 @@
+-- https://github.com/cenk1cenk2/nvim/blob/c5abec280ebb7916c8b5a5ec95becaf79cee50ca/lua/ck/plugins/snacks-nvim.lua
 local M = {}
 
 ---@type snacks.Config
@@ -69,7 +70,7 @@ M.opts = {
             },
             {
                 section = "terminal",
-                cmd = "nvim -v | head -n1 | tr -d '\r\n'",
+                cmd = "nvim -v",
                 height = 1,
                 indent = 9,
                 padding = 1,
