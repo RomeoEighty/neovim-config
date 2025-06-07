@@ -2,6 +2,27 @@ local lualine_status_ok, lualine = pcall(require, "lualine")
 if not lualine_status_ok then
     return {}
 end
+
+local mode_map = {
+  ['NORMAL'] = 'N',
+  ['O-PENDING'] = 'N?',
+  ['INSERT'] = 'I',
+  ['VISUAL'] = 'V',
+  ['V-BLOCK'] = 'VB',
+  ['V-LINE'] = 'VL',
+  ['V-REPLACE'] = 'VR',
+  ['REPLACE'] = 'R',
+  ['COMMAND'] = '!',
+  ['SHELL'] = 'SH',
+  ['TERMINAL'] = 'T',
+  ['EX'] = 'X',
+  ['S-BLOCK'] = 'SB',
+  ['S-LINE'] = 'SL',
+  ['SELECT'] = 'S',
+  ['CONFIRM'] = 'Y?',
+  ['MORE'] = 'M',
+}
+
 lualine.setup {
     options = {
         icons_enabled = true,
@@ -22,7 +43,18 @@ lualine.setup {
         }
     },
     sections = {
-        lualine_a = {'mode'},
+        lualine_a = {
+            {
+                'mode',
+                fmt = function(res)
+                    if vim.api.nvim_win_get_width(0) > 80 then
+                        return res
+                    else
+                        return mode_map[res] or res
+                    end
+                end
+            }
+        },
         lualine_b = {
             {
                 'branch',
