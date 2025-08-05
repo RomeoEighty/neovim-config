@@ -72,6 +72,17 @@ luasnip.add_snippets(nil, {
                 "}",
             })
         }),
+        snippet({
+            trig = "while-find",
+            namr = "while-find idiom",
+            dscr = "Use process substitution instead of a pipe to preserve variable values outside the while loop (avoids subshell).",
+        }, {
+            text_node({
+                'while IFS= read -r -d \'\' file; do',
+                '    echo "$file"',
+                'done < <(find -L ./ -type -f -name \'<target>\' -print0)'
+            }),
+        }),
     },
     markdown = {
         snippet({
