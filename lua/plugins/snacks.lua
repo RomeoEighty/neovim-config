@@ -6,6 +6,19 @@ M.opts = {
     -- your configuration comes here
     -- or leave it empty to use the default settings
     -- refer to the configuration section below
+    ---@type table<string, snacks.win.Config>
+    styles = {
+        notification = {
+            wo = {
+                wrap = true,
+            },
+        },
+        notification_hisotry = {
+            wo = {
+                wrap = true,
+            },
+        },
+    },
     bigfile = { enabled = true },
     dashboard = {
         enabled = true,
@@ -83,7 +96,11 @@ M.opts = {
     indent = { enabled = false }, -- disabled because it's too slow sometimes.
     input = { enabled = true },
     picker = { enabled = true },
-    notifier = { enabled = true },
+    notifier = {
+        enabled = true,
+        ---@type snacks.notifier.style
+        style = "compact",
+    },
     quickfile = { enabled = true },
     scope = { enabled = true },
     scroll = { enabled = false }, -- disabled because it's too slow
