@@ -2,7 +2,7 @@ local status_ok, handlers = pcall(require, "plugins.lsp.handlers")
 handlers.setup()
 
 vim.lsp.config('*', {
-    on_attatch = handlers.on_attach,
+    on_attach = handlers.on_attach,
     capabilities = handlers.capabilities,
 })
 
