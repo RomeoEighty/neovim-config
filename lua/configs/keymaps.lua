@@ -39,10 +39,10 @@ keymap("n", "<A-Left>",  ":vertical resize -2<CR>", opts)
 keymap("n", "<A-Right>", ":vertical resize +2<CR>", opts)
 
 -- Navigate buffers
-keymap("n", "<A-l>", ":BufferLineCycleNext<CR>", opts)
-keymap("n", "<A-h>", ":BufferLineCyclePrev<CR>", opts)
-keymap("n", "<A-L>", ":BufferLineMoveNext<CR>", opts)
-keymap("n", "<A-H>", ":BufferLineMovePrev<CR>", opts)
+keymap("n", "<leader>]", ":BufferLineCycleNext<CR>", opts)
+keymap("n", "<leader>[", ":BufferLineCyclePrev<CR>", opts)
+keymap("n", "<leader>}", ":BufferLineMoveNext<CR>", opts)
+keymap("n", "<leader>{", ":BufferLineMovePrev<CR>", opts)
 
 -- Insert --
 -- Press jk fast to enter
