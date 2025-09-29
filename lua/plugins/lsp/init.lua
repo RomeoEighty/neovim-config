@@ -1,9 +1,9 @@
-local status_ok, _ = pcall(require, "lspconfig")
-if not status_ok then
-    vim.api.nvim_notify("lspconfig not found", vim.log.levels.ERROR, {})
-    return {}
-end
+local status_ok, handlers = pcall(require, "plugins.lsp.handlers")
+handlers.setup()
 
-require "plugins.lsp.mason"
-require("plugins.lsp.handlers").setup()
--- require "plugins.lsp.null-ls"
+vim.lsp.config('*', {
+    on_attatch = handlers.on_attach,
+    capabilities = handlers.capabilities,
+})
+
+require("plugins.lsp.mason")
