@@ -99,6 +99,13 @@ local plugins = {
     { 'folke/tokyonight.nvim', lazy = true },
     { 'diegoulloao/neofusion.nvim', lazy = true},
 
+    -- {
+    --     'xiyaowong/transparent.nvim',
+    --     config = function()
+    --         require("plugins.transparent")
+    --     end,
+    -- },
+
     {
         'nvim-lualine/lualine.nvim',
         dependencies = { 'nvim-tree/nvim-web-devicons', lazy = true },
