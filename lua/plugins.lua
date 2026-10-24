@@ -278,19 +278,6 @@ local plugins = {
     },
 
     {
-        "numToStr/Comment.nvim",
-        event = "BufReadPre",
-        lazy = false,
-        dependencies = {
-            "nvim-treesitter/nvim-treesitter",
-            "JoosepAlviste/nvim-ts-context-commentstring",
-        },
-        config = function()
-            require("plugins.comment")
-        end,
-    },
-
-    {
         "christoomey/vim-tmux-navigator",
         cmd = {
             "TmuxNavigateLeft",
