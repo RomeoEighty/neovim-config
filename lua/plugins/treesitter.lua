@@ -1,44 +1,44 @@
-local M = {
+local treesitter = require "nvim-treesitter"
+
+treesitter.setup {}
+
+-- put the language you want in this array
+treesitter.install {
+  "bash",
+  "c",
+  "cpp",
+  "css",
+  "html",
+  "javascript",
+  "json",
+  "lua",
+  "markdown",
+  "markdown_inline",
+  "python",
+  "query",
+  "toml",
+  "typescript",
+  "vim",
+  "vimdoc",
+  "yaml",
 }
-function M.config()
-  local treesitter = require "nvim-treesitter"
-  local configs = require "nvim-treesitter.configs"
 
-  configs.setup {
-    ensure_installed = "all", -- put the language you want in this array
-    ignore_install = { "" },                                                       -- List of parsers to ignore installing
-    sync_install = true,                                                          -- install languages synchronously (only applied to `ensure_installed`)
+local highlight_disable = { css = true } -- list of language that will be disabled
+local indent_disable = { python = true, css = true }
 
-    highlight = {
-      enable = true,       -- false will disable the whole extension
-      disable = { "css" }, -- list of language that will be disabled
-    },
-    autopairs = {
-      enable = true,
-    },
-    indent = { enable = true, disable = { "python", "css" } },
-
-    context_commentstring = {
-      enable = true,
-      enable_autocmd = false,
-    },
-  }
-end
-
-return M
--- local status_ok, configs = pcall(require, "nvim-treesitter.configs")
--- if not status_ok then
---     return
--- end
--- 
--- configs.setup {
---     ensure_installed = "all",
---     sync_install = false,
---     ignore_install = { "" }, -- List of parsers to ignore installing
---     highlight = {
---         enable = true, -- false will disable the whole extension
---         disable = { "" }, -- list of language that will be disabled
---         additional_vim_regex_highlighting = true,
---     },
---     indent = { enable = true, disable = { "yaml" } },
--- }
+vim.api.nvim_create_autocmd("FileType", {
+  group = vim.api.nvim_create_augroup("user_treesitter", { clear = true }),
+  callback = function(args)
+    local ft = vim.bo[args.buf].filetype
+    if highlight_disable[ft] then
+      return
+    end
+    -- pcall: skip filetypes whose parser is not installed
+    if not pcall(vim.treesitter.start, args.buf) then
+      return
+    end
+    if not indent_disable[ft] then
+      vim.bo[args.buf].indentexpr = "v:lua.require'nvim-treesitter'.indentexpr()"
+    end
+  end,
+})
