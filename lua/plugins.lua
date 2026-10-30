@@ -1,3 +1,5 @@
+local is_windows = vim.fn.has("win32") == 1
+
 local install_path = vim.fn.stdpath("data") .. "/lazy/lazy.nvim"
 if not vim.uv.fs_stat(install_path) then
     local lazyrepo = "https://github.com/folke/lazy.nvim.git"
@@ -193,7 +195,7 @@ local plugins = {
             { "zbirenbaum/copilot.lua" }, -- or github/copilot.vim
             { "nvim-lua/plenary.nvim", branch = "master" }, -- for curl, log and async functions
         },
-        build = "make tiktoken", -- Only on MacOS or Linux
+        build = not is_windows and "make tiktoken" or nil, -- Only on MacOS or Linux
         opts = {
             -- See Configuration section for options
         },
@@ -339,7 +341,13 @@ local plugins = {
 }
 
 -- Use a protected call so we don't error out on first use
-require("lazy").setup(plugins)
+require("lazy").setup(plugins, {
+    rocks = {
+        -- oxocarbon.nvim ships a rockspec, which makes lazy.nvim build
+        -- hererocks/luarocks. There is no build environment on Windows.
+        enabled = not is_windows,
+    },
+})
 
 -- Have packer use a popup window
 -- packer.init({
