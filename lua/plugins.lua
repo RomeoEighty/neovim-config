@@ -212,6 +212,8 @@ local plugins = {
 
     {
         "nvim-treesitter/nvim-treesitter",
+        -- parsers need tree-sitter CLI and a C compiler, which Windows lacks
+        enabled = not is_windows,
         branch = "main",
         lazy = false,
         build = ":TSUpdate",
